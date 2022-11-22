@@ -5,7 +5,7 @@ from pyrogram import Client
 
 from aiohttp import web
 from Uploader.web_support import web_server
-
+from Uploader.config import Config
 logging.config.fileConfig('logging.conf')
 logging.getLogger().setLevel(logging.INFO)
 logging.getLogger("pyrogram").setLevel(logging.ERROR)
