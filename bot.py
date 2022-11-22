@@ -1,18 +1,53 @@
 
+import logging
+import logging.config
+from pyrogram import Client 
+
+from aiohttp import web
+from Uploader.web_support import web_server
+
+logging.config.fileConfig('logging.conf')
+logging.getLogger().setLevel(logging.INFO)
+logging.getLogger("pyrogram").setLevel(logging.ERROR)
 
 
-import os
-from Uploader.config import Config
-from pyrogram import Client as Tellyhub
+class Bot(Client):
 
-if __name__ == "__main__" :
-    
-    if not os.path.isdir(Config.DOWNLOAD_LOCATION):
-        os.makedirs(Config.DOWNLOAD_LOCATION)
-    plugins = dict(root="Uploader")
-    Warrior = Tellyhub("@UPLOADER_X_BOT",
-    bot_token=Config.BOT_TOKEN,
-    api_id=Config.API_ID,
-    api_hash=Config.API_HASH,
-    plugins=plugins)
-    Warrior.run()
+    def __init__(self):
+        super().__init__(
+            name="renamer",
+            api_id=Config.API_ID,
+            api_hash=Config.API_HASH,
+            bot_token=Config.BOT_TOKEN,
+            workers=50,
+            plugins={"root": "plugins"},
+            sleep_threshold=5,
+        )
+
+    async def start(self):
+       await super().start()
+       me = await self.get_me()
+       self.mention = me.mention
+       self.username = me.username 
+       self.force_channel = Config.FORCE_SUB
+       if Config.FORCE_SUB:
+         try:
+            link = await self.export_chat_invite_link(Config.FORCE_SUB)                  
+            self.invitelink = link
+         except Exception as e:
+            logging.warning(e)
+            logging.warning("Make Sure Bot admin in force sub channel")             
+            self.force_channel = None
+       app = web.AppRunner(await web_server())
+       await app.setup()
+       bind_address = "0.0.0.0"
+       await web.TCPSite(app, bind_address, Config.PORT).start()
+       logging.info(f"{me.first_name} 𝚂𝚃𝙰𝚁𝚃𝙴𝙳 ⚡️⚡️⚡️")
+      
+
+    async def stop(self, *args):
+      await super().stop()      
+      logging.info("Bot Stopped")
+        
+bot = Bot()
+bot.run()
