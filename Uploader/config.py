@@ -23,7 +23,7 @@ class Config(object):
     DOWNLOAD_LOCATION = "./DOWNLOADS"
 
     # Update channel for Force Subscribe
-    UPDATE_CHANNEL = os.environ.get("UPDATE_CHANNEL", "-1001601615641")
+    UPDATE_CHANNEL = os.environ.get("UPDATE_CHANNEL", "-1001215708095")
     # Telegram maximum file upload size
     MAX_FILE_SIZE = 4194304000
     TG_MAX_FILE_SIZE = 4194304000
@@ -45,22 +45,22 @@ class Config(object):
     # watermark file
     DEF_WATER_MARK_FILE = ""
     DATABASE_URL = os.environ.get("DATABASE_URL", "mongodb+srv://GreyMatter:GreyMatter24410062@cluster0.acihg.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
-    SESSION_NAME = os.environ.get("SESSION_NAME", "Uploader-Bot")
-    LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL", "-1001735454980"))
+    SESSION_NAME = os.environ.get("SESSION_NAME", "Uploader-Bot-Pro")
+    LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL", "-1001860535753"))
     LOGGER = logging
-    OWNER_ID = int(os.environ.get("OWNER_ID", "5151412494"))
+    OWNER_ID = int(os.environ.get("OWNER_ID", "5467777513"))
     # Update channel for Force Subscribe
     UPDATES_CHANNEL = os.environ.get("UPDATES_CHANNEL", "-1001601615641")
     TG_MIN_FILE_SIZE = 2097152000
-    BOT_USERNAME = os.environ.get("BOT_USERNAME", "pro_url_uploader_658_bot")
-    PRO_USERS = list(set(int(x) for x in os.environ.get("PRO_USERS", "5151412494").split()))
+    BOT_USERNAME = os.environ.get("BOT_USERNAME", "NkUploaderBot")
+    PRO_USERS = list(set(int(x) for x in os.environ.get("PRO_USERS", "5467777513").split()))
     PRO_USERS.append(OWNER_ID)
     BROADCAST_AS_COPY = bool(os.environ.get("BROADCAST_AS_COPY", "False"))
     BYPASS = os.environ.get("BYPASS", "")
     ADL_BOT_RQ = {}
-    AUTH_USERS = list(set(int(x) for x in os.environ.get("AUTH_USERS", "5151412494").split()))
+    AUTH_USERS = list(set(int(x) for x in os.environ.get("AUTH_USERS", "5467777513").split()))
     AUTH_USERS.append(OWNER_ID)
-    FORCE_SUB = os.environ.get("FORCE_SUB", "") 
+    FORCE_SUB = os.environ.get("FORCE_SUB", "-1001215708095") 
 
  
 
