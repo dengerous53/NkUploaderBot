@@ -60,7 +60,7 @@ class Config(object):
     ADL_BOT_RQ = {}
     AUTH_USERS = list(set(int(x) for x in os.environ.get("AUTH_USERS", "5467777513").split()))
     AUTH_USERS.append(OWNER_ID)
-    FORCE_SUB = os.environ.get("FORCE_SUB", "-1001215708095") 
+    FORCE_SUB = os.environ.get("FORCE_SUB", "Nkbots") 
 
  
 
