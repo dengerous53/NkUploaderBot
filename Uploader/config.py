@@ -60,3 +60,8 @@ class Config(object):
     ADL_BOT_RQ = {}
     AUTH_USERS = list(set(int(x) for x in os.environ.get("AUTH_USERS", "5151412494").split()))
     AUTH_USERS.append(OWNER_ID)
+    FORCE_SUB = os.environ.get("FORCE_SUB", "") 
+
+ 
+
+    PORT = os.environ.get("PORT", "8080")
