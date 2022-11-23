@@ -1,2 +1,2 @@
 echo "Successfully Bot Started ✅"
-Python3 bot.py
+python3 bot.py
