@@ -1,2 +1,2 @@
 echo "Successfully Bot Started ✅"
-python3 bot.py
+python3 -m Uploader 
