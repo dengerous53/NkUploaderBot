@@ -9,7 +9,12 @@ from Uploader.config import Config
 logging.config.fileConfig('logging.conf')
 logging.getLogger().setLevel(logging.INFO)
 logging.getLogger("pyrogram").setLevel(logging.ERROR)
-
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+)
+LOGGER = logging.getLogger(__name__)
+logging.getLogger("pyrogram").setLevel(logging.WARNING)
 
 class Bot(Client):
 
@@ -23,21 +28,13 @@ class Bot(Client):
             plugins={"root": "plugins"},
             sleep_threshold=5,
         )
-
     async def start(self):
-       await super().start()
-       me = await self.get_me()
-       self.mention = me.mention
-       self.username = me.username 
-       self.force_channel = Config.FORCE_SUB
-       if Config.FORCE_SUB:
-         try:
-            link = await self.export_chat_invite_link(Config.FORCE_SUB)                  
-            self.invitelink = link
-         except Exception as e:
-            logging.warning(e)
-            logging.warning("Make Sure Bot admin in force sub channel")             
-            self.force_channel = None
+        await super().start()
+        me = await self.get_me()
+        un = '@' + me.username
+        logging.info(f"Pyrogram v{__version__} (Layer {layer}) started on {un}.")
+
+
        app = web.AppRunner(await web_server())
        await app.setup()
        bind_address = "0.0.0.0"
@@ -51,3 +48,11 @@ class Bot(Client):
         
 bot = Bot()
 bot.run()
+
+
+
+
+
+
+
+
