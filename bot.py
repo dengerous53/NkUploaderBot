@@ -1,7 +1,7 @@
 
 import logging
 import logging.config
-from pyrogram import Client 
+from pyrogram import Client, __version__
 
 from aiohttp import web
 from Uploader.web_support import web_server
