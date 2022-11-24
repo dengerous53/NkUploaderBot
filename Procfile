@@ -1,1 +1,1 @@
-web: python3 -m Uploader 
+worker: python3 -m Uploader 
