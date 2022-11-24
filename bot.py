@@ -35,11 +35,11 @@ class Bot(Client):
         logging.info(f"Pyrogram v{__version__} (Layer {layer}) started on {un}.")
 
 
-       app = web.AppRunner(await web_server())
-       await app.setup()
-       bind_address = "0.0.0.0"
-       await web.TCPSite(app, bind_address, Config.PORT).start()
-       logging.info(f"{me.first_name} 𝚂𝚃𝙰𝚁𝚃𝙴𝙳 ⚡️⚡️⚡️")
+        app = web.AppRunner(await web_server())
+        await app.setup()
+        bind_address = "0.0.0.0"
+        await web.TCPSite(app, bind_address, Config.PORT).start()
+        logging.info(f"{me.first_name} 𝚂𝚃𝙰𝚁𝚃𝙴𝙳 ⚡️⚡️⚡️")
       
 
     async def stop(self, *args):
