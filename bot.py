@@ -16,6 +16,9 @@ logging.basicConfig(
 LOGGER = logging.getLogger(__name__)
 logging.getLogger("pyrogram").setLevel(logging.WARNING)
 
+from pyrogram.raw.all import layer
+
+
 class Bot(Client):
 
     def __init__(self):
