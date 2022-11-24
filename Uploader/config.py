@@ -13,17 +13,17 @@ class Config(object):
     # get a token from https://chatbase.com
     CHAT_BASE_TOKEN = os.environ.get("CHAT_BASE_TOKEN", "")
     # get a token from @BotFather
-    BOT_TOKEN = os.environ.get("BOT_TOKEN", "5667754194:AAEnaEF_sUYtEzYWvXT2TYgG7STf88JPC-E")
+    BOT_TOKEN = os.environ.get("BOT_TOKEN", "")
     # The Telegram API things
-    API_ID = int(os.environ.get("API_ID", "9529563"))
-    API_HASH = os.environ.get("API_HASH", "a6c1e1c8daecd5d1f7da03d42032d09a")
+    API_ID = int(os.environ.get("API_ID", 12345))
+    API_HASH = os.environ.get("API_HASH")
     # Get these values from my.telegram.org
     # Array to store users who are authorized to use the bot
 
     DOWNLOAD_LOCATION = "./DOWNLOADS"
 
     # Update channel for Force Subscribe
-    UPDATE_CHANNEL = os.environ.get("UPDATE_CHANNEL", "-1001215708095")
+    UPDATE_CHANNEL = os.environ.get("UPDATE_CHANNEL", "")
     # Telegram maximum file upload size
     MAX_FILE_SIZE = 4194304000
     TG_MAX_FILE_SIZE = 4194304000
@@ -41,27 +41,22 @@ class Config(object):
     # maximum message length in Telegram
     MAX_MESSAGE_LENGTH = 4096
     # set timeout for subprcess
-    PROCESS_MAX_TIMEOUT = 300
+    PROCESS_MAX_TIMEOUT = 14400
     # watermark file
     DEF_WATER_MARK_FILE = ""
-    DATABASE_URL = os.environ.get("DATABASE_URL", "mongodb+srv://GreyMatter:GreyMatter24410062@cluster0.acihg.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
-    SESSION_NAME = os.environ.get("SESSION_NAME", "Uploader-Bot-Pro")
-    LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL", "-1001860535753"))
+    DATABASE_URL = os.environ.get("DATABASE_URL", "")
+    SESSION_NAME = os.environ.get("SESSION_NAME", "Rename-Bot-0")
+    LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL", -100))
     LOGGER = logging
-    OWNER_ID = int(os.environ.get("OWNER_ID", "5467777513"))
+    OWNER_ID = int(os.environ.get("OWNER_ID", ""))
     # Update channel for Force Subscribe
-    UPDATES_CHANNEL = os.environ.get("UPDATES_CHANNEL", "-1001601615641")
+    UPDATES_CHANNEL = os.environ.get("UPDATES_CHANNEL", "")
     TG_MIN_FILE_SIZE = 2097152000
-    BOT_USERNAME = os.environ.get("BOT_USERNAME", "NkUploaderBot")
-    PRO_USERS = list(set(int(x) for x in os.environ.get("PRO_USERS", "5467777513").split()))
+    BOT_USERNAME = os.environ.get("BOT_USERNAME", "TellyUploaderBot")
+    PRO_USERS = list(set(int(x) for x in os.environ.get("PRO_USERS", "0").split()))
     PRO_USERS.append(OWNER_ID)
     BROADCAST_AS_COPY = bool(os.environ.get("BROADCAST_AS_COPY", "False"))
     BYPASS = os.environ.get("BYPASS", "")
     ADL_BOT_RQ = {}
-    AUTH_USERS = list(set(int(x) for x in os.environ.get("AUTH_USERS", "5467777513").split()))
+    AUTH_USERS = list(set(int(x) for x in os.environ.get("AUTH_USERS", "0").split()))
     AUTH_USERS.append(OWNER_ID)
-    FORCE_SUB = os.environ.get("FORCE_SUB", "Nkbots") 
-
- 
-
-    PORT = os.environ.get("PORT", "8080")
