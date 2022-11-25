@@ -19,7 +19,7 @@ class Config:
     API_ID = int(os.environ.get("API_ID", "10412514"))
     API_HASH = os.environ.get("API_HASH", "4d55a7064ad72adcfa8944f505453a8c")
     AUTH_USERS =  [int(i) for i in os.environ.get("AUTH_USERS", "5467777513").split(" ")]
-    BOT_TOKEN = os.environ.get("BOT_TOKEN", "5751126237:AAGZH7TnC1thjiuMvvR7-0YbLpXbNZwaZs4")
+    BOT_TOKEN = os.environ.get("BOT_TOKEN", "5751126237:AAF62IPKfPEAmi8gXlvb55fDCC-I4L4OFMQ")
     DATABASE_URL = os.environ.get("DATABASE_URL", "mongodb+srv://Haashim:Haashim@mfile0.t9hxg.mongodb.net/?retryWrites=true&w=majority")
     DOWNLOAD_LOCATION = "./DOWNLOADS"
     UPDATE_CHANNEL = int(os.environ.get("UPDATE_CHANNEL", "-1001860535753"))
