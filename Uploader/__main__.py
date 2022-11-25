@@ -54,23 +54,11 @@ class Bot(Client):
 
     def __init__(self):
         super().__init__(
-            name="renamer",
-            api_id=Config.API_ID,
-            api_hash=Config.API_HASH,
-            bot_token=Config.BOT_TOKEN,
-            workers=50,
-            plugins={"root": "uploader"},
-            sleep_threshold=5,
-        )
-
-    def __init__(self, session_name: Union[str, Storage] = "RenameBot"):
-        super().__init__(
-            session_name,
             api_id=Config.API_ID,
             api_hash=Config.API_HASH,
             bot_token=Config.BOT_TOKEN,
             plugins=dict(
-                root="bot/plugins"
+                root="uploader/plugins"
             )
         )
 
