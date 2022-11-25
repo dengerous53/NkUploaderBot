@@ -63,23 +63,30 @@ class Bot(Client):
             sleep_threshold=5,
         )
 
+    def __init__(self, session_name: Union[str, Storage] = "RenameBot"):
+        super().__init__(
+            session_name,
+            api_id=Config.API_ID,
+            api_hash=Config.API_HASH,
+            bot_token=Config.BOT_TOKEN,
+            plugins=dict(
+                root="bot/plugins"
+            )
+        )
 
     async def start(self):
         await super().start()
-        me = await self.get_me()
-        un = '@' + me.username
-        LOGGER.info(f"Pyrogram v{__version__} (Layer {layer}) started on {un}.")
-
         app = web.AppRunner(await web_server())
         await app.setup()
         bind_address = "0.0.0.0"
         await web.TCPSite(app, bind_address, Config.PORT).start()
-        LOGGER.info(f"{me.first_name} 𝚂𝚃𝙰𝚁𝚃𝙴𝙳 ⚡️⚡️⚡️")
-      
+        LOGGER.info(f"Bot 𝚂𝚃𝙰𝚁𝚃𝙴𝙳 ⚡️⚡️⚡️")
+        
 
     async def stop(self, *args):
         await super().stop()
-        LOGGER.info('Bot Stopped ! Bye..........')
+        LOGGER.info("Bot Stopped!")
+
 
 if __name__ == "__main__":
     app = Bot()
