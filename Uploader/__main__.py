@@ -10,7 +10,6 @@ logging.getLogger("pyrogram").setLevel(logging.WARNING)
 
 
 import os
-import pytz
 import datetime
 from pyromod import listen
 from .config import Config
